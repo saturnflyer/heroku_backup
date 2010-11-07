@@ -5,15 +5,15 @@ to automate the process of backing up bundles to S3.
 
 == Installation
 
-    $ heroku plugins:install git@github.com:mgomes/heroku_backup.git
+    $ heroku plugins:install git@github.com:saturnflyer/heroku_backup.git
 
 == Setup
 
 This plugin requires two environment variables:
 
-    S3_KEY
+    S3_ACCESS_KEY_ID
 
-    S3_SECRET
+    S3_SECRET_ACCESS_KEY
 
 You can also still use the old style - namely, using +config/s3.yml+
 (the S3 config file used with the paperclip gem).
@@ -42,6 +42,7 @@ That'll make the magic happen.
 
 == Contributors
 
+* Jim Gay (saturnflyer)
 * Nathaniel Jones (nthj)
 * Tom Brown (herestomwiththeweather)
 
