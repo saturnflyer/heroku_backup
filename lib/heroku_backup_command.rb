@@ -19,8 +19,8 @@
 
 module Heroku::Command
   class Backup < BaseWithApp
-    S3_KEY    = 'S3_KEY'
-    S3_SECRET = 'S3_SECRET'
+    S3_ACCESS_KEY_ID     = 'S3_ACCESS_KEY_ID'
+    S3_SECRET_ACCESS_KEY = 'S3_SECRET_ACCESS_KEY'
 
     def addons
       heroku.installed_addons(@app).select { |a| a['configured'] }
@@ -55,7 +55,7 @@ module Heroku::Command
       require 'erb'
 
       if missing_keys? && missing_config_file?
-        display "ERROR: Set environment variables #{S3_KEY} and #{S3_SECRET}" +
+        display "ERROR: Set environment variables #{S3_ACCESS_KEY_ID} and #{S3_SECRET_ACCESS_KEY}" +
                 " or set up a config file at ./config/s3.yml to proceed." +
                 "  \nSee README for more information."
         exit
