@@ -92,8 +92,8 @@ module Heroku::Command
         )
       else
         AWS::S3::Base.establish_connection!(
-          :access_key_id     => ENV[S3_KEY],
-          :secret_access_key => ENV[S3_SECRET]
+          :access_key_id     => ENV[S3_ACCESS_KEY_ID],
+          :secret_access_key => ENV[S3_SECRET_ACCESS_KEY]
         )
       end
 
@@ -121,7 +121,7 @@ module Heroku::Command
       end
 
       def missing_keys?
-        ENV[S3_KEY].nil? || ENV[S3_SECRET].nil?
+        ENV[S3_ACCESS_KEY_ID].nil? || ENV[S3_SECRET_ACCESS_KEY].nil?
       end
 
       def s3_bucket
